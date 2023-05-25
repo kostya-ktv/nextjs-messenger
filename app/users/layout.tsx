@@ -7,6 +7,7 @@ interface Props extends React.PropsWithChildren {}
 
 const UsersLayout = async ({ children }: Props) => {
   const users = await getUsers();
+
   return (
     //@ts-expect-error Server Component
     <SideBar>
