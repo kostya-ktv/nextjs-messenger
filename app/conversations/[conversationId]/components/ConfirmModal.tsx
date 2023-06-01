@@ -10,7 +10,7 @@ import React, { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { FiAlertTriangle } from "react-icons/fi";
 
-interface Props extends IModal {}
+interface Props extends Omit<IModal, "children"> {}
 
 const ConfirmModal: React.FC<Props> = (props) => {
   const router = useRouter();
