@@ -1,3 +1,4 @@
+"use client";
 import { Dialog, Transition } from "@headlessui/react";
 import React from "react";
 import { ClipLoader } from "react-spinners";
