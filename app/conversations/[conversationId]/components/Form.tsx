@@ -1,7 +1,7 @@
 "use client";
 import useConversation from "@/hooks/useConversation";
 import axios from "axios";
-import React from "react";
+import React, { useMemo } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { HiPhoto } from "react-icons/hi2";
 import MessageInput from "./MessageInput";
@@ -12,6 +12,10 @@ interface IForm {}
 
 const Form = (props: IForm) => {
   const { conversationId } = useConversation();
+  const uploadPresetKey = useMemo(
+    () => process.env.CLOUDINARY_UPLOAD_PRESET,
+    []
+  );
   const {
     register,
     handleSubmit,
@@ -43,7 +47,7 @@ const Form = (props: IForm) => {
           maxFiles: 1,
         }}
         onUpload={handleUpload}
-        uploadPreset="mly7wkty"
+        uploadPreset={uploadPresetKey}
       >
         <HiPhoto size={30} className="text-sky-500" />
       </CldUploadButton>
