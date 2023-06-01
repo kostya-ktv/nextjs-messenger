@@ -8,14 +8,9 @@ import MessageInput from "./MessageInput";
 import { HiPaperAirplane } from "react-icons/hi";
 import { CldUploadButton } from "next-cloudinary";
 
-interface IForm {}
-
-const Form = (props: IForm) => {
+const Form = () => {
   const { conversationId } = useConversation();
-  const uploadPresetKey = useMemo(
-    () => process.env.CLOUDINARY_UPLOAD_PRESET,
-    []
-  );
+  const uploadPresetKey = useMemo(() => "mly7wkty", []);
   const {
     register,
     handleSubmit,

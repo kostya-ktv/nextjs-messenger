@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import { useCallback, useMemo } from "react";
 import clsx from "clsx";
 import Avatar from "@/components/Avatar";
+import AvatarGroup from "@/components/AvatarGroup";
 
 interface IConversationBox {
   data: FullConversationType;
@@ -53,7 +54,11 @@ const ConversationBox: React.FC<IConversationBox> = ({ data, selected }) => {
       )}
       onClick={handleClick}
     >
-      <Avatar user={otherUser} />
+      {data.isGroup ? (
+        <AvatarGroup users={data.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <div className="min-w-0 flex-1">
         <div className="focus:outline-none">
           <div className="flex justify-between items-center mb-1">

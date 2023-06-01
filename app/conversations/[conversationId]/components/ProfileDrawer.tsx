@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import React, { useMemo, useState } from "react";
 import { IoClose, IoTrash } from "react-icons/io5";
 import ConfirmModal from "./ConfirmModal";
+import AvatarGroup from "@/components/AvatarGroup";
 
 interface IProfileDrawer {
   data: Conversation & {
@@ -103,7 +104,11 @@ export const ProfileDrawer: React.FC<IProfileDrawer> = ({
                       >
                         <div className="flex flex-col items-center">
                           <div className="mb-2">
-                            <Avatar user={otherUser} />
+                            {data.isGroup ? (
+                              <AvatarGroup users={data.users} />
+                            ) : (
+                              <Avatar user={otherUser} />
+                            )}
                           </div>
                           <div>{title}</div>
                           <div className="text-sm text-gray-500 ">
@@ -141,6 +146,24 @@ export const ProfileDrawer: React.FC<IProfileDrawer> = ({
                             sm:pt-0"
                           >
                             <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
+                              {data.isGroup && (
+                                <div>
+                                  <dt
+                                    className="
+                                  text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0"
+                                  >
+                                    Emails
+                                  </dt>
+                                  <dd
+                                    className="
+                                  mt-1 text-sm text-gray-900 sm:col-span-2"
+                                  >
+                                    {data.users
+                                      .map((user) => user.email)
+                                      .join(", ")}
+                                  </dd>
+                                </div>
+                              )}
                               {!data.isGroup && (
                                 <div>
                                   <dt
