@@ -34,7 +34,11 @@ const useRoutes = () => {
             label: 'Logout',
             href: '#',
             icon: HiArrowLeftOnRectangle,
-            onClick: () => signOut()
+            onClick: () => {
+                const key = localStorage.getItem('nextauth.message')
+                if(key) localStorage.removeItem('nextauth.message')
+                signOut()
+            }
         },
     ] as IRoute[],[pathname, conversationId])
 }
