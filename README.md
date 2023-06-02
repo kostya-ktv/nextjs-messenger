@@ -1,3 +1,8 @@
+![alt text](https://github.com/kostya-ktv/nextjs-messenger/blob/main/public/images/login.png?raw=true)
+![alt text](https://github.com/kostya-ktv/nextjs-messenger/blob/main/public/images/chat.png?raw=true)
+
+## When deploying, do not forget to specify the application address, in google cloud and github auth applications consoles
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
