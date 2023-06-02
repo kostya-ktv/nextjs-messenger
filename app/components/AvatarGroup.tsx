@@ -24,7 +24,7 @@ const AvatarGroup: React.FC<IAvatarGroup> = ({ users }) => {
         <div
           key={user.id}
           className={`absolute inline-block 
-          rounded-full, overflow-hidden h-[21px] w-[21px] ${
+          rounded-full overflow-hidden h-[21px] w-[21px] ${
             positionMap[i as keyof typeof positionMap]
           }`}
         >
